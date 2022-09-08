@@ -1,0 +1,31 @@
+﻿@*Burası category index*@
+@using EntityLayer.Concrete
+@model List<Category>
+@{
+    Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Kategori Adı</th>
+        <th>Açıklama</th>
+        <th>Durumu</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CategoryId</td>
+            <td>@item.CategoryName</td>
+            <td>@item.CategoryDescription</td>
+            <td>@if (item.CategoryStatus == true){<a>Aktif</a>}
+                else {<a>Pasif</a>}
+            </td>
+            <td><a href="#" class="btn btn-warning">Sil</a></td>
+        </tr>
+    }
+</table>
